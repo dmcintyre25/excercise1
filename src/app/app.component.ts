@@ -8,8 +8,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   serverElements = [{type: 'server', name: 'Testserver', content: 'Just a test!'}];
 
-  startGame(startGame: {gameCount: number }) {
-    console.log(startGame.gameCount);
+  oddNumbers: number[] = [];
+  evenNumbers: number[] = [];
+
+  displayScore(gameCount: number) {
+    console.log(gameCount);
+    if(gameCount % 2 === 0) {
+      this.evenNumbers.push(gameCount);
+    } else {
+      this.oddNumbers.push(gameCount);
+    }
   }
 
   onServerAdded(serverData: {serverName: string, serverContent: string}) {
